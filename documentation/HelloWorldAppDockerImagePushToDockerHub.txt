@@ -1,0 +1,14 @@
+Push locally created image to dockerhub
+
+Login into dockerhub
+
+PS C:\data\minikubeTests\HelloWorldApp> docker ps -a
+CONTAINER ID        IMAGE                                 COMMAND                  CREATED             STATUS              PORTS                                                                                                      NAMES
+dd6265e7e743        helloworldapp_nginx                   "/docker-entrypoint.…"   5 hours ago         Up 5 hours          0.0.0.0:1337->80/tcp                                                                                       helloworldapp_nginx_1
+b2bbbec538f6        helloworldapp_web                     "gunicorn helloworld…"   5 hours ago         Up 5 hours          8000/tcp                                                                                                   helloworldapp_web_1
+
+
+docker commit b2bbbec538f6 monicamarshall/helloproject_web:latest
+
+
+docker push monicamarshall/helloproject_web:latest
