@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: helloworldapp-ingress
+  labels:
+    app: web
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - host: helloworld.info  # Replace with the URL you want.
+    http:
+      paths:
+      - path: /sayHello
+        backend:
+          serviceName: web
+          servicePort: 8000

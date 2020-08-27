@@ -1,0 +1,20 @@
+PS C:\data\minikubeTests\HelloWorldApp> docker-compose down -v
+
+PS C:\data\minikubeTests\HelloWorldApp> docker-compose up -d --build
+
+PS C:\data\minikubeTests\HelloWorldApp> docker-compose exec web python manage.py collectstatic
+
+PS C:\data\minikubeTests\HelloWorldApp> docker-compose exec web python manage.py migrate --run-syncdb  (We don't need to run this command because the app does not read/write to the db)
+
+PS C:\data\minikubeTests\HelloWorldApp> docker-compose exec web python manage.py createsuperuser
+
+PS C:\data\minikubeTests\HelloWorldApp> docker-compose logs -f
+
+Port specified in docker-compose.yml file
+Access helloworldapp at:
+
+http://helloworld.info:1337/sayHello   or   http://localhost:1337/sayHello (an ingress url helloworld.info is added to ALLOWED_HOSTS in settings file.  Make sure to add helloworld.info to your hosts file.
+
+Access helloworldapp admin console:
+
+http://helloworld.info:1337/admin/   or http://localhost:1337/admin/
