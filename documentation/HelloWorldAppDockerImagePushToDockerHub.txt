@@ -12,3 +12,56 @@ docker commit b2bbbec538f6 monicamarshall/helloproject_web:latest
 
 
 docker push monicamarshall/helloproject_web:latest
+
+
+From the powershell console:
+
+PS C:\data\minikubeTests\HelloWorldApp> docker login
+Authenticating with existing credentials...
+Login Succeeded
+
+PS C:\data\minikubeTests\HelloWorldApp> docker commit b2bbbec538f6 monicamarshall/helloproject_web:latest
+sha256:c4004f86e8f2817c198781d8b3634f0953342c07335e81c19396b01848c43146
+
+
+PS C:\data\minikubeTests\HelloWorldApp> docker images
+REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
+monicamarshall/helloproject_web      latest              c4004f86e8f2        25 seconds ago      946MB
+helloworldapp_web                    latest              b30c73282f23        6 hours ago         946MB
+helloworldapp_nginx                  latest              7a9e3d81a23f        6 hours ago         21.3MB
+<none>                               <none>              61ac9aaf6607        6 hours ago         946MB
+<none>                               <none>              6fc4a363a6c9        6 hours ago         946MB
+<none>                               <none>              cfd32cb967d6        6 hours ago         21.3MB
+<none>                               <none>              248f18c2ba81        6 hours ago         946MB
+messageboardapp_web                  latest              9f273f09811d        7 hours ago         959MB
+<none>                               <none>              923c3bfe996d        19 hours ago        959MB
+<none>                               <none>              52de7248d4ca        19 hours ago        959MB
+messageboardapp_nginx                latest              6eb4136885b0        23 hours ago        21.3MB
+<none>                               <none>              4109d4fba6ca        23 hours ago        959MB
+<none>                               <none>              24579a656dca        23 hours ago        21.3MB
+<none>                               <none>              128f7f9a1c07        23 hours ago        959MB
+<none>                               <none>              b9b10474f422        24 hours ago        959MB
+<none>                               <none>              30e743d84bc1        24 hours ago        21.3MB
+<none>                               <none>              b8cb608a292d        24 hours ago        959MB
+python                               3.7                 5c1cd4638fb7        9 days ago          876MB
+postgres                             11                  9cbe6e10ed65        13 days ago         282MB
+gcr.io/k8s-minikube/kicbase          v0.0.11             e3ca409c7daf        3 weeks ago         953MB
+nginx                                1.19.0-alpine       7d0cdcc60a96        2 months ago        21.3MB
+docker/desktop-storage-provisioner   v1.1                e704287ce753        5 months ago        41.8MB
+docker/desktop-vpnkit-controller     v1.0                79da37e5a3aa        5 months ago        36.6MB
+k8s.gcr.io/kube-controller-manager   v1.16.5             441835dd2301        7 months ago        151MB
+k8s.gcr.io/kube-scheduler            v1.16.5             b4d073a9efda        7 months ago        83.5MB
+k8s.gcr.io/kube-proxy                v1.16.5             0ee1b8a3ebe0        7 months ago        82.7MB
+k8s.gcr.io/kube-apiserver            v1.16.5             fc838b21afbb        7 months ago        159MB
+docker/kube-compose-controller       v0.4.25-alpha1      129151cdf35f        10 months ago       35.6MB
+docker/kube-compose-api-server       v0.4.25-alpha1      989749268895        10 months ago       50.7MB
+k8s.gcr.io/etcd                      3.3.15-0            b2756210eeab        11 months ago       247MB
+k8s.gcr.io/coredns                   1.6.2               bf261d157914        12 months ago       44.1MB
+k8s.gcr.io/pause                     3.1                 da86e6ba6ca1        2 years ago         742kB
+
+
+
+PS C:\data\minikubeTests\HelloWorldApp> docker push monicamarshall/helloproject_web:latest
+The push refers to repository [docker.io/monicamarshall/helloproject_web]
+3dfcd5331131: Pushed                                                                                                                                                                                                                         c04e785b014f: Pushed                                                                                                                                                                                                                         caabd8dd5ce9: Pushed                                                                                                                                                                                                                         d371daeb6a0f: Pushed                                                                                                                                                                                                                         5e2cc30bfee8: Pushed                                                                                                                                                                                                                         1d854dfe257a: Pushed                                                                                                                                                                                                                         a616a1b6a32d: Mounted from library/python                                                                                                                                                                                                    1262698c17e2: Mounted from library/python                                                                                                                                                                                                    12cd54fa9297: Mounted from library/python                                                                                                                                                                                                    f17789b093c5: Layer already exists                                                                                                                                                                                                           e480b226ea6b: Layer already exists                                                                                                                                                                                                           e5df62d9b33a: Layer already exists                                                                                                                                                                                                           7a9460d53218: Layer already exists                                                                                                                                                                                                           b2765ac0333a: Layer already exists                                                                                                                                                                                                           0ced13fcf944: Layer already exists                                                                                                                                                                                                           latest: digest: sha256:65bd953c1a8d8b6eb87dd819f6576bcd22f46bdcdc5c680924bbb80aa94bc0e7 size: 3473
+PS C:\data\minikubeTests\HelloWorldApp>
