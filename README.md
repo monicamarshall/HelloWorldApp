@@ -16,6 +16,16 @@ The app can be containerized using one of the 3 available docker-compose files.
 Build a docker container image and run it using the command:
 docker-compose up -d --build
 
+After running docker-compose up -d --build, make sure to run the following 3 commands:
+
+1. PS C:\data\minikubeTests\HelloWorldApp> docker-compose exec web python manage.py collectstatic
+
+2. PS C:\data\minikubeTests\HelloWorldApp> docker-compose exec web python manage.py migrate --run-syncdb  (We don't need to run this command because the app does not read/write to the db)
+
+3. PS C:\data\minikubeTests\HelloWorldApp> docker-compose exec web python manage.py createsuperuser
+
+Run PS C:\data\minikubeTests\HelloWorldApp> docker-compose logs -f  to view the logs.
+
 To build and run the docker-compose image, you must install 
 
 1. Docker engine.  For centos, use this link:  https://docs.docker.com/engine/install/centos/
@@ -25,10 +35,16 @@ To build and run the docker-compose image, you must install
 3. CD to the HelloWorldApp top directory where manage.py is located and run the command to 
 build and run the docker-compose image: 
 
-docker-compose up -d --build  (by default it looks for a deployment file called docker-compose.yml, otherwise use the -f option if the docker-compose file has a different name.
+docker-compose up -d --build  (by default it looks for a deployment file called docker-compose.yml, otherwise use the -f option if the docker-compose file has a different name.)
 
-Since the docker-compose.yml file exposes the nginx port 1337:80, access the HelloWorldApp at:
-http://localhost:1337/sayHello/
+Port 1337 is specified in docker-compose.yml file
+Access helloworldapp at:
+
+http://helloworld.info:1337/sayHello   or   http://localhost:1337/sayHello (an ingress url helloworld.info is added to ALLOWED_HOSTS in settings file.  Make sure to add helloworld.info to your hosts file.
+
+Access helloworldapp admin console:
+
+http://helloworld.info:1337/admin/   or http://localhost:1337/admin/
 
 To build and run the HelloWorldApp from docker images login into Dockerhub (https://hub.docker.com/) and download the web image:
 
