@@ -3,7 +3,7 @@ Simple web application that prints "Hello World!" to a webpage.
 Use URL:  http://localhost:8000/sayHello if you decide to run the HelloWorldApp using 
 the built-in django sqlite3 webserver.   (python manage.py runserver).
 
-This application can be run in a docker container.  
+This application can be run in a docker container.  It can be deployed to a Kubernetes cluster as well.  Instructions for running HelloWorldApp in a kubernetes cluster are in the documentation folder.
 
 The app can be containerized using one of the 3 available docker-compose files.
 
